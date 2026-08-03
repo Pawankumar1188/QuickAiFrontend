@@ -7,7 +7,7 @@
 // Checks if the user has a premium plan
 
 // Manages free usage for non - premium users
-
+//add this module 
 // Adds info to req so next routes can use it
 import { clerkClient } from "@clerk/express";
 
