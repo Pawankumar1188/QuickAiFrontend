@@ -1,243 +1,652 @@
-# QUICKAI
+# ✦ Nexora.AI
 
-AI-Powered Content Generation at Your Fingertips
+### Create Smarter. Build Faster. With AI.
 
-Powered by modern core technologies: React, Express, PostgreSQL, Node.js, OpenAI API, and Clerk.
+Nexora.AI is a full-stack AI-powered creative workspace that brings content generation, image creation, image editing, resume analysis, and community sharing into one platform.
 
-## LIVE - DEMO
-Visit the web application here: https://nexona-ai.netlify.app/
+<p align="left">
 
----
+![React](https://img.shields.io/badge/React-Frontend-61DAFB?logo=react&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-Backend-339933?logo=node.js&logoColor=white)
+![Express](https://img.shields.io/badge/Express-API-000000?logo=express&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Neon-4169E1?logo=postgresql&logoColor=white)
+![Cloudinary](https://img.shields.io/badge/Cloudinary-Media-3448C5?logo=cloudinary&logoColor=white)
+![Netlify](https://img.shields.io/badge/Netlify-Deployed-00C7B7?logo=netlify&logoColor=white)
 
-## Table of Contents
-- Overview
-- Key Features
-- Tech Stack
-- Project Architecture
-- Getting Started
-  - Prerequisites
-  - Installation Steps
-  - Environment Variables
-- AI Capabilities
-- API Endpoints
-- Deployment Guide
-- Contributing
-- License
-- Support
+</p>
 
 ---
 
-## Overview
-QUICKAI is a comprehensive AI SaaS platform built to streamline creative and professional workflows. The application provides:
-- AI Image Generation and Creative Editing
-- Intelligent Text Content Creation
-- Automated Resume Review and Optimization
-- Precise Background and Object Removal
-- Catchy Article and Blog Title Generation
-- Community Sharing Features
+## 🌐 Live Demo
 
-The platform is built using the robust PERN stack (PostgreSQL, Express, React, Node.js) and integrates seamlessly with OpenAI's advanced intelligence models.
+The application is deployed and available here:
+
+### [🚀 Open Nexora.AI](https://nexona-ai.netlify.app/)
 
 ---
 
-## Key Features
+## 📌 Overview
 
-### AI-Powered Tools
-- Generate Images: Instantly create high-quality visuals from text prompts.
-- Remove Background: Automatic, precise background isolation for uploaded images.
-- Remove Objects: Effortlessly clean up images by erasing unwanted objects.
-- Write Articles: Smart, AI-assisted full-length article generation.
-- Blog Titles: Generate highly engaging, SEO-friendly blog post headlines.
-- Review Resume: Advanced AI resume analysis, scoring, and targeted suggestions.
+**Nexora.AI** is an AI SaaS application designed to simplify common creative and professional tasks.
 
-### User Experience
-- Secure Authentication: Production-ready user management powered by Clerk.
-- Central Dashboard: A unified, user-friendly hub to access all AI services.
-- Community Hub: Public feed to share your AI creations and discover community work.
-- Fully Responsive Design: Optimized layout for seamless use across mobile, tablet, and desktop screens.
-- Real-time Processing: Fast streaming and processing for instant AI feedback.
+Instead of using multiple applications for writing, generating images, editing images, and reviewing resumes, users can access all of these capabilities from a single dashboard.
 
-### Enterprise Architecture
-- Secure File Handling: Reliable media management via Cloudinary integration.
-- Document Processing: Instant PDF parsing for structural resume analysis.
-- Scalable Backbone: Asynchronous handling designed to support high-traffic loads.
-- API-First Methodology: Designed around structured, predictable RESTful endpoints.
+The application is built using the **PERN stack**:
+
+```text
+PostgreSQL + Express.js + React.js + Node.js
+```
+
+It also integrates third-party services such as:
+
+- OpenAI for AI-powered generation
+- Cloudinary for image storage and AI image transformations
+- Clerk for authentication and user management
+- Neon for serverless PostgreSQL hosting
 
 ---
 
-## Tech Stack
+# ✨ Features
 
-### Frontend Client
-- React - Component-based user interface framework
-- Vite - High-performance frontend build tool
-- Tailwind CSS - Utility-first styling framework
-- Axios - Promise-based HTTP client for seamless API communications
-- React Router DOM - Declarative routing for single-page applications
-- Lucide React - Modern, clean icon library
-- React Hot Toast - Sleek, responsive UI notifications
-- React Markdown - Secure rendering for AI-generated markdown text
-- Clerk React - Streamlined client-side authentication
+## 🤖 AI Tools
 
-### Backend Server
-- Node.js - Scalable JavaScript runtime environment
-- Express - Fast, minimalist web framework for routing and middleware
-- PostgreSQL - Robust relational database layer hosted on Neon
-- OpenAI Node SDK - Deep integration with text and image generation models
-- Cloudinary SDK - Automated cloud media optimization and storage
-- Multer - Node.js middleware for handling multipart form data and file uploads
-- CORS - Configured cross-origin resource sharing controls
-- PDF-Parse - Structural text extraction from uploaded PDF documents
-
-### DevOps and Infrastructure
-- Vercel - Optimized frontend hosting and deployment
-- Neon - Serverless, scalable PostgreSQL database hosting
-- Cloudinary CDN - Global asset and image delivery network
-- Clerk Dashboard - Cloud-hosted user session management
+| Tool | Description |
+|---|---|
+| ✍️ **Write Article** | Generate structured articles using a topic and user-defined parameters |
+| #️⃣ **Blog Titles** | Generate creative and engaging blog title suggestions |
+| 🎨 **Generate Images** | Convert text prompts into AI-generated images |
+| 🪄 **Remove Background** | Automatically remove the background from an uploaded image |
+| ✂️ **Remove Object** | Remove unwanted objects from an image using AI |
+| 📄 **Review Resume** | Upload a PDF resume and receive AI-powered feedback and suggestions |
 
 ---
 
-## Project Architecture
+## 👤 User Features
 
-QuickAI/
-├── client/                 # React Frontend Application
-│   ├── src/
-│   │   ├── assets/         # Global static images and styles
-│   │   ├── components/     # Reusable UI components
-│   │   │   ├── AITools.jsx
-│   │   │   ├── CreationItem.jsx
-│   │   │   ├── Footer.jsx
-│   │   │   ├── Hero.jsx
-│   │   │   ├── Navbar.jsx
-│   │   │   ├── Plan.jsx
-│   │   │   ├── Sidebar.jsx
-│   │   │   └── Testimonial.jsx
-│   │   ├── pages/          # Individual application views and routes
-│   │   │   ├── BlogTitles.jsx
-│   │   │   ├── Community.jsx
-│   │   │   ├── Dashboard.jsx
-│   │   │   ├── GenerateImages.jsx
-│   │   │   ├── Home.jsx
-│   │   │   ├── Layout.jsx
-│   │   │   ├── RemoveBackground.jsx
-│   │   │   ├── RemoveObject.jsx
-│   │   │   ├── ReviewResume.jsx
-│   │   │   └── WriteArticle.jsx
-│   │   └── ...           # Project configuration files
+### Secure Authentication
+
+Authentication and user sessions are handled using **Clerk**.
+
+Protected application routes verify the authenticated user before allowing access to AI services.
+
+---
+
+### 📊 Personal Dashboard
+
+Users get a centralized dashboard where they can:
+
+- Access all AI tools
+- View their active plan
+- Track generated creations
+- View recent activity
+- Navigate between different AI services
+
+---
+
+### 🌍 Community
+
+Users can explore publicly shared AI-generated creations through the community section.
+
+This allows users to discover content generated by other users of the platform.
+
+---
+
+### 📱 Responsive Interface
+
+The frontend is built using **React and Tailwind CSS** and is designed to work across:
+
+- Desktop
+- Laptop
+- Tablet
+- Mobile
+
+---
+
+# 🧰 Tech Stack
+
+## Frontend
+
+| Technology | Purpose |
+|---|---|
+| **React.js** | Building the user interface |
+| **Vite** | Frontend development and build tool |
+| **Tailwind CSS** | Responsive UI styling |
+| **React Router DOM** | Client-side routing |
+| **Axios** | Communication with backend APIs |
+| **Lucide React** | UI icons |
+| **React Hot Toast** | Notifications |
+| **React Markdown** | Rendering AI-generated Markdown |
+| **Clerk React** | Authentication and user sessions |
+
+---
+
+## Backend
+
+| Technology | Purpose |
+|---|---|
+| **Node.js** | JavaScript runtime |
+| **Express.js** | REST API and backend routing |
+| **PostgreSQL** | Relational database |
+| **Neon** | Serverless PostgreSQL hosting |
+| **OpenAI API** | AI-powered content/image generation |
+| **Cloudinary** | Image storage and AI image transformations |
+| **Multer** | Handling uploaded files |
+| **PDF Parse** | Extracting text from resume PDFs |
+| **CORS** | Frontend-backend communication |
+
+---
+
+# 🏗️ Architecture
+
+```text
+                         ┌─────────────────┐
+                         │     User        │
+                         └────────┬────────┘
+                                  │
+                                  ▼
+                         ┌─────────────────┐
+                         │ React Frontend  │
+                         │    Nexora.AI    │
+                         └────────┬────────┘
+                                  │
+                              REST API
+                                  │
+                                  ▼
+                         ┌─────────────────┐
+                         │ Express Backend │
+                         └────────┬────────┘
+                                  │
+                ┌─────────────────┼─────────────────┐
+                │                 │                 │
+                ▼                 ▼                 ▼
+        ┌──────────────┐   ┌────────────┐   ┌────────────┐
+        │    Clerk     │   │  OpenAI    │   │ Cloudinary │
+        │     Auth     │   │    API     │   │ Image AI   │
+        └──────────────┘   └────────────┘   └────────────┘
+                                  │
+                                  ▼
+                         ┌─────────────────┐
+                         │ Neon PostgreSQL │
+                         │    Database     │
+                         └─────────────────┘
+```
+
+---
+
+# 🔄 Application Flow
+
+A normal AI request follows this flow:
+
+```text
+User
+  ↓
+React Frontend
+  ↓
+API Request
+  ↓
+Clerk Authentication
+  ↓
+Express Middleware
+  ↓
+AI Controller
+  ↓
+OpenAI / Cloudinary
+  ↓
+Result Generated
+  ↓
+Save Creation in PostgreSQL
+  ↓
+Return Response
+  ↓
+Display Result to User
+```
+
+---
+
+# 🖼️ Image Editing Flow
+
+Nexora.AI uses **Cloudinary AI transformations** for its image editing capabilities.
+
+## Remove Background
+
+```text
+Upload Image
+     ↓
+Multer
+     ↓
+Express Controller
+     ↓
+Cloudinary Upload
+     ↓
+Background Removal AI
+     ↓
+Processed Image URL
+     ↓
+Save to PostgreSQL
+     ↓
+Display Result
+```
+
+Cloudinary automatically detects the main subject and removes the surrounding background.
+
+---
+
+## Remove Object
+
+The user uploads an image and specifies the object they want to remove.
+
+```text
+Image + Object Name
+        ↓
+      Multer
+        ↓
+ Upload to Cloudinary
+        ↓
+     public_id
+        ↓
+ gen_remove transformation
+        ↓
+ Cloudinary Generative AI
+        ↓
+   Processed Image
+        ↓
+      Result
+```
+
+Cloudinary removes the specified object and reconstructs the missing portion using the surrounding image context.
+
+---
+
+# 📄 Resume Review Flow
+
+```text
+Upload Resume PDF
+        ↓
+      Multer
+        ↓
+    PDF Parser
+        ↓
+ Extract Resume Text
+        ↓
+      AI Model
+        ↓
+ Analyse Resume
+        ↓
+ Feedback + Suggestions
+        ↓
+ Display to User
+```
+
+The tool can provide feedback on areas such as resume structure, skills, content quality, and possible improvements.
+
+---
+
+# 📁 Project Structure
+
+```text
+Nexora.AI/
 │
-├── server/                # Express Backend Application
-│   ├── configs/          # Integration setups
-│   │   ├── cloudinary.js # Media storage configurations
-│   │   ├── db.js         # PostgreSQL pool connection instance
-│   │   └── multer.js     # File upload validation and memory rules
-│   ├── controllers/      # Core business and API handler logic
+├── client/
+│   ├── src/
+│   │
+│   ├── assets/
+│   │
+│   ├── components/
+│   │   ├── AITools.jsx
+│   │   ├── CreationItem.jsx
+│   │   ├── Footer.jsx
+│   │   ├── Hero.jsx
+│   │   ├── Navbar.jsx
+│   │   ├── Plan.jsx
+│   │   ├── Sidebar.jsx
+│   │   └── Testimonial.jsx
+│   │
+│   ├── pages/
+│   │   ├── BlogTitles.jsx
+│   │   ├── Community.jsx
+│   │   ├── Dashboard.jsx
+│   │   ├── GenerateImages.jsx
+│   │   ├── Home.jsx
+│   │   ├── Layout.jsx
+│   │   ├── RemoveBackground.jsx
+│   │   ├── RemoveObject.jsx
+│   │   ├── ReviewResume.jsx
+│   │   └── WriteArticle.jsx
+│   │
+│   └── package.json
+│
+├── server/
+│   │
+│   ├── configs/
+│   │   ├── cloudinary.js
+│   │   ├── db.js
+│   │   └── multer.js
+│   │
+│   ├── controllers/
 │   │   ├── aiController.js
 │   │   └── userController.js
-│   ├── middlewares/      # Intercepting validation layers
-│   │   └── auth.js       # Clerk session token validation
-│   ├── routes/           # Defined API router endpoints
+│   │
+│   ├── middlewares/
+│   │   └── auth.js
+│   │
+│   ├── routes/
 │   │   ├── aiRoutes.js
 │   │   └── userRoutes.js
-│   └── server.js         # Primary application entry point
+│   │
+│   ├── server.js
+│   └── package.json
+│
+└── README.md
+```
 
 ---
 
-## Getting Started
+# 🔌 API Overview
 
-### Prerequisites
-- Node.js (Version 18 or higher recommended)
-- npm or yarn package manager
-- A Neon PostgreSQL database instance
-- An active OpenAI API key
-- A Cloudinary storage account
-- A Clerk application instance for authentication keys
+## AI Routes
 
-### Installation Steps
+Base route:
 
-1. Clone the project repository from GitHub:
-git clone https://github.com/Pawankumar1188/QuickAiFrontend
-cd QuickAI
+```http
+/api/ai
+```
 
-2. Install the necessary dependencies for the client dashboard:
+Main operations include:
+
+```http
+POST /write-article
+POST /generate-titles
+POST /generate-image
+POST /remove-background
+POST /remove-object
+POST /review-resume
+```
+
+These routes are responsible for the application's AI functionality.
+
+---
+
+## User Routes
+
+Base route:
+
+```http
+/api/users
+```
+
+User-related functionality includes:
+
+```http
+GET  /profile
+GET  /creations
+POST /creations
+GET  /community
+```
+
+Protected routes use authentication middleware to verify the current user.
+
+---
+
+# 🔐 Authentication Flow
+
+```text
+User Login
+    ↓
+Clerk
+    ↓
+Authentication Token
+    ↓
+Frontend API Request
+    ↓
+Express Auth Middleware
+    ↓
+Verify User
+    ↓
+Controller
+    ↓
+Protected Resource
+```
+
+This prevents unauthenticated users from accessing protected AI functionality.
+
+---
+
+# 🗄️ Database
+
+The project uses **PostgreSQL hosted on Neon**.
+
+The database stores information such as:
+
+- User-related creation data
+- AI-generated content
+- Generated image URLs
+- Creation metadata
+- Public/private creation status
+
+The application communicates with PostgreSQL through the backend rather than directly from the React frontend.
+
+---
+
+# ⚙️ Getting Started
+
+## Prerequisites
+
+Make sure you have:
+
+```text
+Node.js 18+
+npm
+Neon PostgreSQL account
+Clerk account
+Cloudinary account
+OpenAI API credentials
+```
+
+---
+
+## 1. Clone the Repository
+
+```bash
+git clone https://github.com/Pawankumar1188/QuickAiFrontend.git
+cd QuickAiFrontend
+```
+
+---
+
+## 2. Install Frontend Dependencies
+
+```bash
 cd client
 npm install
+```
 
-3. Install the necessary dependencies for the backend API server:
-cd ../server
+---
+
+## 3. Install Backend Dependencies
+
+Open another terminal:
+
+```bash
+cd server
 npm install
+```
 
-### Environment Variables
+---
 
-Create a configuration file named .env inside the client directory:
-VITE_CLERK_PUBLISHABLE_KEY=pk_test_your_clerk_key
+# 🔑 Environment Variables
+
+Never commit your real `.env` files or API keys to GitHub.
+
+## Client
+
+Create:
+
+```text
+client/.env
+```
+
+Add:
+
+```env
+VITE_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
 VITE_API_BASE_URL=http://localhost:5000
+```
 
-Create a configuration file named .env inside the server directory:
-OPENAI_API_KEY=sk-your-openai-api-key
-CLOUDINARY_CLOUD_NAME=your-cloudinary-cloud-name
-CLOUDINARY_API_KEY=your-cloudinary-api-key
-CLOUDINARY_API_SECRET=your-cloudinary-api-secret
-DATABASE_URL=your-neon-postgres-connection-string
-CLERK_SECRET_KEY=sk_test_your_clerk_secret_key
+---
+
+## Server
+
+Create:
+
+```text
+server/.env
+```
+
+Add:
+
+```env
+OPENAI_API_KEY=your_openai_api_key
+
+CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
+CLOUDINARY_API_KEY=your_cloudinary_api_key
+CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+
+DATABASE_URL=your_neon_postgresql_connection_string
+
+CLERK_SECRET_KEY=your_clerk_secret_key
+
 PORT=5000
-
-4. Launch the local development environment:
-To start the backend API server, open a terminal window and run:
-cd server && npm run server
-
-To start the frontend user interface, open a separate terminal window and run:
-cd client && npm run dev
+```
 
 ---
 
-## AI Capabilities
+# ▶️ Run Locally
 
-### Image Generation
-- Seamless text-to-image pipeline powered by DALL-E models.
-- Support for customizable styling rules, aspect ratios, and resolutions.
-- High-fidelity visual generation optimized for immediate download.
+## Start Backend
 
-### Advanced Image Editing
-- One-click background separation with pixel-edge precision.
-- Intelligently context-aware object removal and image touch-ups.
-- Designed to allow stable file processing.
+```bash
+cd server
+npm run server
+```
 
-### Creative Content Generation
-- Complete article drafting equipped with customizable tone and structural control.
-- Catchy, algorithmic blog title generation built to maximize user click-through rates.
-- Embedded SEO optimization and topical keyword suggestions.
+The backend will run on:
 
-### Structural Document Processing
-- Deep parsing of text structures from uploaded PDF resume documents.
-- Automated resume score cards outlining exact structural strengths.
-- Precision skills gap analysis coupled with actionable career improvement metrics.
+```text
+http://localhost:5000
+```
 
 ---
 
-## API Endpoints
+## Start Frontend
 
-### AI Service Routes (/api/ai)
-- POST /generate-image : Handles text prompt processing to deliver newly generated images.
-- POST /remove-background : Receives file payloads to isolate primary subjects from backgrounds.
-- POST /remove-object : Identifies coordinates or target items to clean from images.
-- POST /write-article : Generates curated text copy based on user parameters.
-- POST /generate-titles : Returns multiple variations of engaging content titles.
-- POST /review-resume : Extracts PDF information to output structural critiques and grades.
+Open another terminal:
 
-### User and Community Routes (/api/users)
-- GET /profile : Fetches the current authenticated user's profile metadata.
-- POST /creations : Persists a successfully generated AI asset to the user's private gallery.
-- GET /creations : Pulls the full history of creations associated with the active account.
-- GET /community : References all publicly shared community creations for display.
+```bash
+cd client
+npm run dev
+```
+
+Vite will provide a development URL such as:
+
+```text
+http://localhost:5173
+```
 
 ---
 
-## Deployment Guide
+# 🚀 Deployment
 
-### Frontend Deployment (Vercel)
-Connect your GitHub repository directly to Vercel. Set the root directory configuration to point to the client folder, include your environment variables, and trigger a build deployment.
+## Frontend
 
-### Backend Deployment (Render or Vercel)
-Deploy your server folder to an environment host capable of continuous Node.js runtime operations. Ensure all environment secrets matching your database, OpenAI, Cloudinary, and Clerk settings are updated in your provider dashboard.
+The Nexora.AI frontend is deployed using **Netlify**.
 
-### Database Hosting (Neon)
-Create a serverless PostgreSQL cluster instance directly on Neon (https://neon.tech/) and paste the provided connection string inside your backend environmental parameters.
+Live application:
+
+### https://nexona-ai.netlify.app/
+
+Production environment variables should be configured through the Netlify dashboard rather than committed to GitHub.
+
+---
+
+## Database
+
+The PostgreSQL database is hosted using **Neon Serverless PostgreSQL**.
+
+```text
+Application
+    ↓
+Express Backend
+    ↓
+Neon PostgreSQL
+```
+
+---
+
+## Media Storage
+
+Uploaded and processed images are handled using **Cloudinary**.
+
+Cloudinary provides:
+
+- Cloud image storage
+- CDN delivery
+- Background removal
+- Generative object removal
+- Image transformations
+
+---
+
+# 🔒 Security
+
+The application follows several basic security practices:
+
+- Authentication using Clerk
+- Protected backend routes
+- Environment variables for API credentials
+- Server-side database access
+- Controlled file uploads using Multer
+- CORS configuration
+- Cloud-based image storage instead of storing uploads permanently on the application server
+
+> API keys and database credentials should never be committed to the repository.
+
+---
+
+# 🎯 Future Improvements
+
+Possible improvements for Nexora.AI include:
+
+- AI generation credit system
+- User favorites
+- Advanced creation history
+- Before/after image comparison
+- Drag-and-drop image uploads
+- Dark mode
+- Admin analytics dashboard
+- Usage monitoring
+- Rate limiting
+- Additional AI image editing tools
+
+---
+
+# 👨‍💻 Author
+
+**Pawan Kumar**
+
+Full-stack development • AI integration • Generative AI
+
+---
+
+# ⭐ Support
+
+If you find Nexora.AI useful, consider giving the repository a ⭐ on GitHub.
+
+---
+
+<p align="center">
+
+### ✦ Nexora.AI
+
+**Create Smarter. Build Faster. With AI.**
+
+</p>
